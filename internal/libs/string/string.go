@@ -4,10 +4,10 @@ package string
 
 import (
 	"errors"
-	"strings"
-	"regexp"
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
+	"regexp"
+	"strings"
 )
 
 func Title(str string) string {
@@ -27,14 +27,14 @@ func PascalCase(str string) string {
 
 func CamelCase(str string) (string, error) {
 	if len(str) == 0 {
-        return "", errors.New("string length minimum is 1")
-    } else {
-    	tempStr := PascalCase(str)
+		return "", errors.New("string length minimum is 1")
+	} else {
+		tempStr := PascalCase(str)
 		lowercasedFirstChar := strings.ToLower(string(tempStr[0]))
 		camelCaseStr := lowercasedFirstChar + tempStr[1:]
 
 		return camelCaseStr, nil
-    }
+	}
 }
 
 func SnakeCase(str string) string {
@@ -53,8 +53,8 @@ func KebabCase(str string) string {
 
 func Capitalize(str string) (string, error) {
 	if len(str) == 0 {
-        return "", errors.New("string length minimum is 1")
-    } else {
+		return "", errors.New("string length minimum is 1")
+	} else {
 		uppercasedFirstChar := strings.ToUpper(string(str[0]))
 		capitalizedStr := uppercasedFirstChar + str[1:]
 
@@ -101,10 +101,10 @@ func IsNumeric(str string) bool {
 
 func InsertAt(str string, substr string, index int) (string, error) {
 	if (index < 0) || (index > len(str)) {
-        return "", errors.New("index for InsertAt must be between 0 and max index of string")
-    } else {
-    	newStr := str[:index] + substr + str[index:]
+		return "", errors.New("index for InsertAt must be between 0 and max index of string")
+	} else {
+		newStr := str[:index] + substr + str[index:]
 
 		return newStr, nil
-    }
+	}
 }
